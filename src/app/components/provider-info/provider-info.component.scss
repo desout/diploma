@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+}
+
+.search-form-field {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.mat-cell {
+  padding-left: 0;
+
+  .mat-cell {
+    min-height: 45px;
+    border-bottom: solid 1px gray;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

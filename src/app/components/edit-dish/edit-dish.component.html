@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Edit dish</h1>
+<div mat-dialog-content>
+  <form [formGroup]="dishForm" enctype="multipart/form-data">
+    <mat-form-field>
+      <input matInput formControlName="name" placeholder="Input dish name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea formControlName="description" matInput placeholder="Description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input formControlName="prepareTime" matInput placeholder="Input prepare time">
+    </mat-form-field>
+
+    <img *ngIf="photoView" src='{{photoView}}'>
+    <mat-form-field>
+      <ngx-mat-file-input accept="image/*" (ngModelChange)="onSetImage(imageInput)" #imageInput formControlName="photo"
+                          placeholder="Image"></ngx-mat-file-input>
+      <button mat-icon-button matSuffix *ngIf="!imageInput.empty" (click)="imageInput.clear($event)">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select category</mat-label>
+      <mat-select formControlName="Categories_idCategory">
+        <mat-option *ngFor="let category of categories$ | async" [value]="category.idCategory">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select ingredients</mat-label>
+      <mat-select formControlName="ingredients" multiple>
+        <mat-option *ngFor="let ingredient of ingredients$ | async"
+                    [value]="ingredient.idIngredient">{{ingredient.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Back</button>
+  <button mat-button [mat-dialog-close]="dishForm.value" cdkFocusInitial>Ok</button>
+</div>

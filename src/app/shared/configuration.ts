@@ -1,0 +1,2 @@
+export const DATE_FORMATS = ['YYYY-MM-DD', 'DD MMMM YYYY', 'DD-MMM-YY'];
+export const COMPANY_NAME = 'SOME_COMPANY_NAME';

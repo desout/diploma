@@ -1,0 +1,13 @@
+<mat-card style="text-align: center;" class="example-card">
+  <mat-card-title>{{dish.name}}</mat-card-title>
+  <img mat-card-image src='{{photo | async}}'>
+  <mat-card-content>
+    <p>
+      {{dish.description}}
+    </p>
+    <p>
+      Состав: есть
+    </p>
+    <p>{{dish.cost}} BYN</p>
+  </mat-card-content>
+</mat-card>

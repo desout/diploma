@@ -1,0 +1,100 @@
+<div class="search-div">
+  <button mat-raised-button (click)="openEditDialogProvider({})">
+    <mat-icon>add</mat-icon>
+    Create Provider
+  </button>
+  <mat-form-field class="search-form-field" floatLabel="never">
+    <label>
+      <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+    </label>
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<div class="mat-elevation-z8">
+  <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Name Column -->
+    <ng-container matColumnDef="contactInfo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Provide contact info</th>
+      <td mat-cell *matCellDef="let element">
+        <tr>
+          <td>{{element.contactInfo}}</td>
+          <td>
+            <button mat-icon-button (click)="openEditDialogProvider(element)">
+              <mat-icon>launch</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openEditDialogHistory({idProvider: element.idProvider})">
+              <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </td>
+
+    </ng-container>
+
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No.</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-cell *ngFor="let history of element.history">
+          {{history.id}}
+        </mat-cell>
+      </td>
+    </ng-container>
+
+    <!-- count Column -->
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Count</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-cell *ngFor="let history of element.history">
+          {{history.count}}
+        </mat-cell>
+      </td>
+    </ng-container>
+
+    <!-- cost Column -->
+    <ng-container matColumnDef="cost">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-cell *ngFor="let history of element.history">
+          {{history.cost}}
+        </mat-cell>
+      </td>
+    </ng-container>
+
+    <!-- date Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>date</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-cell *ngFor="let history of element.history">
+          {{history.date}}
+        </mat-cell>
+      </td>
+    </ng-container>
+
+    <!-- ingredientName Column -->
+    <ng-container matColumnDef="ingredientName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ingredient name</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-cell *ngFor="let history of element.history">
+          {{history.ingredientName}}
+        </mat-cell>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+<mat-card *ngIf="!dataSource"
+          style="display: flex; justify-content: center; align-items: center">
+  <mat-progress-spinner
+    color="primary"
+    mode="indeterminate">
+  </mat-progress-spinner>
+</mat-card>
+

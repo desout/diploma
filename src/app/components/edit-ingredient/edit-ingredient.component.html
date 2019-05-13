@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Edit dish</h1>
+<div mat-dialog-content>
+  <form [formGroup]="ingredientForm" enctype="multipart/form-data">
+    <mat-form-field>
+      <input matInput formControlName="name" placeholder="Input dish name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" formControlName="count" matInput placeholder="Count">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" formControlName="cost" matInput placeholder="Price">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Back</button>
+  <button mat-button [mat-dialog-close]="ingredientForm.value" cdkFocusInitial>Ok</button>
+</div>

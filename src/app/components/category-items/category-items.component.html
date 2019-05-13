@@ -1,0 +1,8 @@
+<mat-grid-list cols="4" rowHeight="600px">
+  <mat-grid-tile
+    *ngFor="let dish of dishes$ | async">
+    <app-dish-card
+      class="dish-tile" [dish]="dish">
+    </app-dish-card>
+  </mat-grid-tile>
+</mat-grid-list>

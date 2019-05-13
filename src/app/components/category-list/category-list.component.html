@@ -1,0 +1,10 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab *ngFor="let category of categories$ | async">
+      <span class="label"><ng-template mat-tab-label>
+        <app-category-label [category]="category"></app-category-label>
+      </ng-template></span>
+
+    <app-category-tab [category]='category'></app-category-tab>
+  </mat-tab>
+</mat-tab-group>
+

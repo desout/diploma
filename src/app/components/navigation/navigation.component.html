@@ -1,0 +1,78 @@
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="app-name">{{companyName}}</h1>
+    <span class="spacer"></span>
+
+    <span *ngIf="!(userService.currentUser$ | async)"><button (click)="openLoginDialog()">Login</button></span>
+    <span *ngIf="(userService.currentUser$ | async)"><span>{{(userService.currentUser$ | async).name}}</span><button
+      type="button" mat-button (click)="logout()">logout</button></span>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
+      <mat-nav-list>
+        <mat-list-item *ngIf="(userService.currentUser$ | async) && (userService.currentUser$ | async).role>2"
+                       (click)="showDirectorMenu = !showDirectorMenu" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing">Director menu</span>
+          <mat-icon mat-list-icon>home</mat-icon>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showDirectorMenu}" *ngIf="isExpanded || isShowing">
+            expand_more
+          </mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showDirectorMenu}" *ngIf="isShowing || isExpanded">
+          <a mat-list-item routerLink="management/employees" (click)="drawer.toggle()">Management control </a>
+          <a mat-list-item routerLink="management/providers" (click)="drawer.toggle()">Providers info</a>
+          <a mat-list-item routerLink="contacts" (click)="drawer.toggle()">Contacts</a>
+
+        </div>
+        <mat-list-item *ngIf="(userService.currentUser$ | async) && (userService.currentUser$ | async).role>1"
+                       (click)="showCountMenu = !showCountMenu" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing">Financial menu</span>
+          <mat-icon mat-list-icon>home</mat-icon>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showCountMenu}" *ngIf="isExpanded || isShowing">
+            expand_more
+          </mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showCountMenu}" *ngIf="isShowing || isExpanded">
+          <a mat-list-item routerLink="menu" (click)="drawer.toggle()">Financial part</a>
+          <a mat-list-item routerLink="about" (click)="drawer.toggle()">About</a>
+          <a mat-list-item routerLink="contacts" (click)="drawer.toggle()">Contacts</a>
+
+        </div>
+        <mat-list-item *ngIf="(userService.currentUser$ | async) && (userService.currentUser$ | async).role>0"
+                       (click)="showMerchMenu = !showMerchMenu" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing">Merch menu</span>
+          <mat-icon mat-list-icon>home</mat-icon>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showMerchMenu}" *ngIf="isExpanded || isShowing">
+            expand_more
+          </mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showMerchMenu}" *ngIf="isShowing || isExpanded">
+          <a mat-list-item routerLink="merch/dishes" (click)="drawer.toggle()">Dishes part</a>
+          <a mat-list-item routerLink="merch/ingredients" (click)="drawer.toggle()">Using ingredients</a>
+          <a mat-list-item routerLink="merch/categories" (click)="drawer.toggle()">Categories part</a>
+
+        </div>
+        <a mat-list-item routerLink="menu" (click)="drawer.toggle()">Menu</a>
+        <a mat-list-item routerLink="about" (click)="drawer.toggle()">About</a>
+        <a mat-list-item routerLink="contacts" (click)="drawer.toggle()">Contacts</a>
+
+        <mat-form-field>
+          <mat-label>Select an place</mat-label>
+          <mat-select [value]="selectedDepartment" (selectionChange)="updateDepartmentSelect($event)">
+            <mat-option *ngFor="let dep of  allDepartments$ | async"
+                        [value]="dep.idDepartment">{{dep.place}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
