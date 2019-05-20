@@ -10,12 +10,14 @@ import {
   MatButtonModule,
   MatCardModule,
   MatCheckboxModule,
+  MatDatepickerModule,
   MatDialogModule,
   MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
+  MatNativeDateModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
   MatSelectModule,
@@ -55,6 +57,13 @@ import {EditDepartmentComponent} from './components/edit-department/edit-departm
 import {ProviderInfoComponent} from './components/provider-info/provider-info.component';
 import {EditProviderComponent} from './components/edit-provider/edit-provider.component';
 import {EditHistoryItemComponent} from './components/edit-history-item/edit-history-item.component';
+import {StatisticComponent} from './components/statistic/statistic.component';
+import {ChartCommonModule, LineChartModule, NgxChartsModule} from '@swimlane/ngx-charts';
+import {OrderInfoComponent} from './components/order-info/order-info.component';
+import {DishesStatisticsComponent} from './components/dishes-statistics/dishes-statistics.component';
+import {ClientsInfoComponent} from './components/clients-info/clients-info.component';
+import {EditClientComponent} from './components/edit-client/edit-client.component';
+import {UpdatePasswordComponent} from './components/update-password/update-password.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -84,7 +93,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditDepartmentComponent,
     ProviderInfoComponent,
     EditProviderComponent,
-    EditHistoryItemComponent
+    EditHistoryItemComponent,
+    StatisticComponent,
+    OrderInfoComponent,
+    DishesStatisticsComponent,
+    ClientsInfoComponent,
+    EditClientComponent,
+    UpdatePasswordComponent
   ],
   entryComponents: [
     EditDishComponent,
@@ -93,7 +108,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditEmployeeComponent,
     EditDepartmentComponent,
     EditProviderComponent,
-    EditHistoryItemComponent
+    EditHistoryItemComponent,
+    EditClientComponent,
+    UpdatePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -128,7 +145,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatProgressSpinnerModule,
     MatTreeModule,
     ReactiveFormsModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    LineChartModule,
+    ChartCommonModule,
+    NgxChartsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     CategoryService,

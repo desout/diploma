@@ -31,7 +31,7 @@ export class EditDishComponent implements OnInit {
         ingredients: [],
         name: '',
         prepareTime: 0
-      });
+      } as Dish);
     }
   }
 
@@ -44,7 +44,7 @@ export class EditDishComponent implements OnInit {
     idPhoto: [this.data.idPhoto],
     description: [this.data.description],
     Categories_idCategory: [this.data.Categories_idCategory],
-    ingredients: [this.data.ingredients.map(ingr => ingr.idIngredient)],
+    ingredients: [this.data.ingredients ? this.data.ingredients.map(ingr => ingr.idIngredient) : []],
     prepareTime: [this.data.prepareTime],
     photo: [undefined]
   });

@@ -1,14 +1,14 @@
-<h1 mat-dialog-title>Please,Log In</h1>
+<h1 mat-dialog-title>{{"HOME.LOGINPAGE" | translate}}</h1>
 <div mat-dialog-content>
   <mat-form-field>
-    <input matInput placeholder="Login" [(ngModel)]="data.name">
+    <input matInput placeholder='{{"ACCOUNT.LOGIN" | translate}}' [(ngModel)]="data.name">
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="password" placeholder="Password" [(ngModel)]="data.password">
+    <input matInput type="password" placeholder='{{"ACCOUNT.PASSWORD" | translate}}' [(ngModel)]="data.password">
   </mat-form-field>
-  <mat-checkbox [(ngModel)]="data.isEmployee">Login as employee</mat-checkbox>
+  <mat-checkbox [(ngModel)]="data.isEmployee">{{"ACCOUNT.LOGINEMPLOYEE" | translate}}</mat-checkbox>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Back</button>
+  <button mat-button (click)="onNoClick()">{{"HOME.BACK" | translate}}</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </div>

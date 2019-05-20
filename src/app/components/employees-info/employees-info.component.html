@@ -1,26 +1,27 @@
 <div class="search-div">
   <button mat-raised-button (click)="openEditDialogDepartment({})">
     <mat-icon>add</mat-icon>
-    Create Department
+    {{"INFOPAGES.CREATEDEPARTMENT" | translate}}
   </button>
   <mat-form-field class="search-form-field" floatLabel="never">
     <label>
-      <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+      <input matInput [(ngModel)]="searchKey" placeholder='{{"INFOPAGES.SEARCH" | translate}}' autocomplete="off"
+             (keyup)="applyFilter()">
     </label>
     <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
-  <button mat-raised-button (click)="openEditDialogDepartment({})">
+  <button mat-raised-button (click)="openEditDialogEmployee({})">
     <mat-icon>add</mat-icon>
-    Create Employee
+    {{"INFOPAGES.CREATEEMPLOYEE" | translate}}
   </button>
 </div>
 <div class="mat-elevation-z8">
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Name Column -->
     <ng-container matColumnDef="departmentName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name of department</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"INFOPAGES.DEPARTMENTNAME" | translate}}</th>
       <td mat-cell *matCellDef="let element">
         <tr>
           <td>{{element.place}}</td>
@@ -39,7 +40,7 @@
 
     <!-- id Column -->
     <ng-container matColumnDef="idEmployee">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> No.</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"INFOPAGES.NUMBER" | translate}}</th>
       <td mat-cell *matCellDef="let element"> {{element.idEmployee}}
         <mat-cell *ngFor="let employee of element.employees">
           {{employee.idEmployee}}
@@ -49,7 +50,7 @@
 
     <!-- name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"INFOPAGES.EMPLOYEENAME" | translate}}</th>
       <td mat-cell *matCellDef="let element">
         <mat-cell *ngFor="let employee of element.employees">
           {{employee.firstName}} &nbsp;{{employee.secondName}} &nbsp; {{employee.lastName}}
@@ -59,7 +60,7 @@
 
     <!-- login Column -->
     <ng-container matColumnDef="login">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Login</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"INFOPAGES.LOGIN" | translate}}</th>
       <td mat-cell *matCellDef="let element">
         <mat-cell *ngFor="let employee of element.employees">
           {{employee.login}}
@@ -69,7 +70,7 @@
 
     <!-- passportData Column -->
     <ng-container matColumnDef="passportData">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> passport data</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"INFOPAGES.PASSPORTDATA" | translate}}</th>
       <td mat-cell *matCellDef="let element">
         <mat-cell *ngFor="let employee of element.employees">
           {{employee.passportData}}
@@ -79,7 +80,7 @@
 
     <!-- dateOfBirth Column -->
     <ng-container matColumnDef="dateOfBirth">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> date of birth</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"INFOPAGES.DATEOFBIRTH" | translate}}</th>
       <td mat-cell *matCellDef="let element">
         <mat-cell *ngFor="let employee of element.employees">
           {{employee.dateOfBirth}}
@@ -89,16 +90,16 @@
 
     <!-- role Column -->
     <ng-container matColumnDef="role">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Role</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"INFOPAGES.ROLE" | translate}}</th>
       <td mat-cell *matCellDef="let element">
         <mat-cell *ngFor="let employee of element.employees">
-          {{employee.role}}
+          {{"TITLE." + employee.role | translate}}
         </mat-cell>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee actions</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"INFOPAGES.ACTIONS" | translate}}</th>
       <td mat-cell *matCellDef="let element">
         <mat-cell *ngFor="let employee of element.employees">
           <button mat-icon-button (click)="openEditDialogEmployee(employee)">

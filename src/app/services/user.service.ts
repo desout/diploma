@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {first, map} from 'rxjs/operators';
 import {pathConfig} from '../configs/urlConfigs';
-import {UpdatePasswordUser} from '../models/UpdatePasswordUser';
 import {Client} from '../models/Client';
 import {Employee} from '../models/Employee';
 import {LocalUser} from '../models/LocalUser';
@@ -26,13 +25,9 @@ export class UserService {
       id: (user as Client).idClient ? (user as Client).idClient : (user as Employee).idEmployee,
       name: (user as Client).name ? (user as Client).name : `${(user as Employee).firstName} ${(user as Employee).lastName}`,
       discount: (user as Client).discount,
+      roleName: (user as Employee).role ? (user as Employee).role : 'CLIENT',
       role: roleConfig[(user as Employee).role ? (user as Employee).role : 'CLIENT']
     };
-  }
-
-  updatePassword(user: UpdatePasswordUser): Observable<boolean> {
-    const url = `${pathConfig.baseUrl}${pathConfig.accountAPI}/updatePassword`;
-    return this.http.post<boolean>(url, user);
   }
 
   getCurrentUser(): Observable<LocalUser> {

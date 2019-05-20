@@ -6,7 +6,8 @@ import {pathConfig} from '../configs/urlConfigs';
 import {IngredientService} from './ingredient.service';
 import {ProviderService} from './provider.service';
 import {Provider} from '../models/Provider';
-import {map} from 'rxjs/operators';
+import {map, switchMap, tap} from 'rxjs/operators';
+import {getLocalDate, getUTCDate} from '../utils/date.formatter';
 
 @Injectable({
   providedIn: 'root'
@@ -17,21 +18,36 @@ export class HistoryService {
   }
 
   getAllHistoryItems = (): Observable<DeliveryHistoryItem[]> =>
-    this.http.get<DeliveryHistoryItem[]>(`${pathConfig.baseUrl}${pathConfig.historyAPI}`);
+    this.http.get<DeliveryHistoryItem[]>(`${pathConfig.baseUrl}${pathConfig.historyAPI}`).pipe(
+      map(res => res.map(item => this.getLocalHistory(item)))
+    );
 
   getFullHistory = (): Observable<Provider[]> =>
     zip(this.providerService.getAllProviders(), this.getAllHistoryItems(), this.ingredientService.getAllIngredients())
-      .pipe(
+      .pipe(tap(res => console.log(res)),
         map(res => res[0].map(
           provider => (
             {
               ...provider,
-              history: res[1].filter(item => item.idProvider === provider.idProvider)
-                .map(item => item.ingredientName = res[2].find(ingr => ingr.idIngredient === item.idIngredient).name)
+              history: res[1].filter(item => item.Providers_idProvider === provider.idProvider)
+                .map(item => ({
+                  ...item,
+                  ingredientName: res[2].find(ingr => ingr.idIngredient === item.Ingredients_idIngredient).name
+                }))
             }
           ) as unknown as Provider)));
+  getHistoryItem = (id: number): Observable<DeliveryHistoryItem> =>
+    this.http.get<DeliveryHistoryItem>(`${pathConfig.baseUrl}${pathConfig.historyAPI}/${id}`);
 
   addItem = (result: DeliveryHistoryItem): Observable<DeliveryHistoryItem> => {
-    return;
+    return this.http.put<{ id: number }>(`${pathConfig.baseUrl}${pathConfig.historyAPI}`, this.getExportHistory(result))
+      .pipe(switchMap(res => this.getHistoryItem(res.id)));
+  };
+  getLocalHistory = (deliveryHistoryItem: DeliveryHistoryItem): DeliveryHistoryItem => {
+    return {...deliveryHistoryItem, date: getLocalDate(deliveryHistoryItem.date)};
+  };
+
+  getExportHistory = (deliveryHistoryItem: DeliveryHistoryItem): DeliveryHistoryItem => {
+    return {...deliveryHistoryItem, date: getUTCDate(deliveryHistoryItem.date)};
   };
 }

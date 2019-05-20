@@ -1,0 +1,124 @@
+{
+  "HOME": {
+    "SELECT_LANG": "Select lang",
+    "LOGOUT": "Log out",
+    "LOGIN": "Log in",
+    "UPDATEPASSWORD": "Forgot password?",
+    "DIRECTOR_MENU": "Management part",
+    "FINANCIALPART": "Financial menu",
+    "MERCHANDISER": "Products menu",
+    "MENU": "Menu",
+    "ABOUT": "About",
+    "SELECTDEPARTMENTS": "Select department",
+    "LOGINPAGE": "Please, Log in",
+    "BACK": "Back"
+  },
+  "INFOPAGES": {
+    "CREATE": "Create",
+    "NUMBER": "No.",
+    "NAME": "Name",
+    "DEPARTMENTNAME": "Name of department",
+    "LOGIN": "Login",
+    "PASSPORTDATA": "Passport data",
+    "DATEOFBIRTH": "Date of birth",
+    "ROLE": "Role",
+    "ACTIONS": "Actions",
+    "DESCRIPTION": "Description",
+    "SEARCH": "Search",
+    "EMPLOYEENAME": "Employee name",
+    "CREATEDEPARTMENT": "Create department",
+    "CREATEEMPLOYEE": "Create employee",
+    "PROVIDERCONTRACTINFO": "Providers contract info",
+    "COUNT": "Count",
+    "COST": "Cost",
+    "DATE": "Date",
+    "INGREDIENTNAME": "Ingredient name",
+    "DISCOUNTCOST": "Cost with discount",
+    "CLIENTNAME": "Client name",
+    "STATUS": "Status",
+    "DISHES": "Dishes",
+    "DISHNAME": "Dish name",
+    "CONTACTS": "Contacts",
+    "DISCOUNT": "Discount"
+  },
+  "ACCOUNTANT": {
+    "PROVIDERS": "Providers",
+    "ORDERS": "Orders"
+  },
+  "MERCHANDISER": {
+    "DISHES": "Dishes",
+    "INGREDIENTS": "Ingredients",
+    "CATEGORIES": "Categories",
+    "CLIENTS": "Clients"
+  },
+  "ACCOUNT": {
+    "LOGIN": "Login",
+    "OLDPASSWORD": "Old Password",
+    "NEWPASSWORD": "New Password",
+    "ISEMPLOYEE": "Is employee?",
+    "PASSWORD": "Password",
+    "LOGINEMPLOYEE": "Login as employee?",
+    "FORGOTPASSWORDPAGE": "Forgot password?"
+  },
+  "DIRECTOR": {
+    "MANAGEMENTCONTROL": "Management control",
+    "DEPARTMENTSSTATISTIC": "Statistic by departments",
+    "DISHESSTATISTIC": "Statistic by dishes"
+  },
+  "NAV": {
+    "MENU": "Menu",
+    "ABOUT": "About"
+  },
+  "EDIT": {
+    "DEPARTMENT": "Edit department",
+    "PLACE": "Place",
+    "CONTACTS": "Contacts",
+    "DESCRIPTION": "Description",
+    "EMPLOYEE": "Edit employee",
+    "FIRSTNAME": "First name",
+    "SECONDNAME": "Second name",
+    "LASTNAME": "Last name",
+    "DATEOFBIRTH": "Date of birth",
+    "PASSPORTDATA": "Passport data",
+    "SALARY": "Salary",
+    "SELECTROLE": "Role",
+    "SELECTDEPARTMENT": "Department",
+    "LOGIN": "Login",
+    "PROVIDER": "Edit provider",
+    "CONTRACTINFO": "Contract info",
+    "DISHNAME": "Dish name",
+    "PREPARETIME": "Prepare time",
+    "IMAGE": "Image",
+    "SELECTCATEGORY": "Category",
+    "SELECTINGREDIENTS": "Ingredients",
+    "DISH": "Edit dish",
+    "COUNT": "Count",
+    "COST": "Cost",
+    "TYPE": "Type",
+    "NAME": "Name",
+    "INGREDIENT": "Edit ingredient",
+    "CATEGORYNAME": "Category name",
+    "CATEGORY": "Edit category",
+    "CLIENT": "Edit client",
+    "CLIENTNAME": "Client name",
+    "DISCOUNT": "Discount"
+  },
+  "DISH": {
+    "COMPOSITION": "Composition"
+  },
+  "TITLE": {
+    "DIRECTOR": "Director",
+    "CLIENT": "Client",
+    "ACCOUNTANT": "Accountant",
+    "MERCHANDISER": "Merchandiser"
+  },
+  "STATISTIC": {
+    "DEPARTMENTSVENUETITLE": "Statistic about venue of departments",
+    "DISHESSTATISTICTITLE": "Statistic about dish popularity",
+    "STARTDATE": "Choose a start date",
+    "ENDDATE": "Choose a end date",
+    "MONTH": "Month",
+    "VENUE": "Venue",
+    "COUNT": "Count"
+  }
+}

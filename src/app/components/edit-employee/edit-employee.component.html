@@ -1,40 +1,44 @@
-<h1 mat-dialog-title>Edit Employee</h1>
+<h1 mat-dialog-title>{{"EDIT.EMPLOYEE" | translate}}</h1>
 <div mat-dialog-content>
   <form [formGroup]="employeeForm" enctype="multipart/form-data">
     <mat-form-field>
-      <input matInput formControlName="firstName" placeholder="first name">
+      <input matInput formControlName="firstName" placeholder='{{"EDIT.FIRSTNAME" | translate}}'>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput formControlName="secondName" placeholder="second name">
+      <input matInput formControlName="secondName" placeholder='{{"EDIT.SECONDNAME" | translate}}'>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput formControlName="lastName" placeholder="last name">
+      <input matInput formControlName="lastName" placeholder='{{"EDIT.LASTNAME" | translate}}'>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput formControlName="login" placeholder="Login">
+      <input matInput formControlName="login" placeholder='{{"EDIT.LOGIN" | translate}}'>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput formControlName="passportData" placeholder="passport data">
+      <input matInput formControlName="passportData" placeholder='{{"EDIT.PASSPORTDATA" | translate}}'>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="date" formControlName="dateOfBirth" placeholder="date of birth">
+      <input matInput [matDatepicker]="picker" placeholder='{{"EDIT.DATEOFBIRTH" | translate}}'
+             formControlName="dateOfBirth" id="dateOfBirth"
+             readonly (click)="picker.open()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field>
-      <textarea formControlName="contacts" matInput placeholder="Contacts"></textarea>
+      <textarea formControlName="contacts" matInput placeholder='{{"EDIT.CONTACTS" | translate}}'></textarea>
     </mat-form-field>
 
     <mat-form-field>
-      <input formControlName="salary" matInput type="number" placeholder="Salary">
+      <input formControlName="salary" matInput type="number" placeholder='{{"EDIT.SALARY" | translate}}'>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Select Role</mat-label>
+      <mat-label>{{"EDIT.SELECTROLE" | translate}}</mat-label>
       <mat-select formControlName="role">
         <mat-option *ngFor="let category of roles" [value]="category.value">
           {{category.show}}
@@ -43,7 +47,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Select Department</mat-label>
+      <mat-label>{{"EDIT.SELECTDEPARTMENT" | translate}}</mat-label>
       <mat-select formControlName="Departments_idDepartment">
         <mat-option *ngFor="let category of departments$ | async" [value]="category.idDepartment">
           {{category.place}}
@@ -55,6 +59,6 @@
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Back</button>
+  <button mat-button (click)="onNoClick()">{{"HOME.BACK" | translate}}</button>
   <button mat-button [mat-dialog-close]="employeeForm.value" cdkFocusInitial>Ok</button>
 </div>

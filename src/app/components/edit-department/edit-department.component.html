@@ -1,23 +1,23 @@
-<h1 mat-dialog-title>Edit Employee</h1>
+<h1 mat-dialog-title>{{"EDIT.DEPARTMENT" | translate}}</h1>
 <div mat-dialog-content>
   <form [formGroup]="DepartmentForm" enctype="multipart/form-data">
 
     <mat-form-field>
-      <input matInput formControlName="place" placeholder="Place">
+      <input matInput formControlName="place" placeholder='{{"EDIT.PLACE" | translate}}'>
     </mat-form-field>
 
     <mat-form-field>
-      <textarea matInput formControlName="contacts" placeholder="Contacts"></textarea>
+      <textarea matInput formControlName="contacts" placeholder='{{"EDIT.CONTACTS" | translate}}'></textarea>
     </mat-form-field>
 
     <mat-form-field>
-      <textarea formControlName="description" matInput placeholder="Contacts"></textarea>
+      <textarea formControlName="description" matInput placeholder='{{"EDIT.DESCRIPTION" | translate}}'></textarea>
     </mat-form-field>
 
 
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Back</button>
+  <button mat-button (click)="onNoClick()">{{"HOME.BACK" | translate}}</button>
   <button mat-button [mat-dialog-close]="DepartmentForm.value" cdkFocusInitial>Ok</button>
 </div>

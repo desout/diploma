@@ -1,3 +1,36 @@
-<p>
-  edit-history-item works!
-</p>
+<h1 mat-dialog-title>{{"EDIT.HISTORYITEM" | translate}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="historyForm" enctype="multipart/form-data">
+
+    <mat-form-field>
+      <input formControlName="count" matInput type="number" placeholder='{{"EDIT.COUNT" | translate}}'>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input formControlName="cost" matInput type="number" placeholder='{{"EDIT.COST" | translate}}'>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder='{{"EDIT.DATE" | translate}}' formControlName="date"
+             id="date"
+             readonly (click)="picker.open()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{"EDIT.SELECTINGREDIENT" | translate}}</mat-label>
+      <mat-select formControlName="idIngredient">
+        <mat-option *ngFor="let ingredient of ingredients$ | async" [value]="ingredient.idIngredient">
+          {{ingredient.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">{{"HOME.BACK" | translate}}</button>
+  <button mat-button [mat-dialog-close]="historyForm.value" cdkFocusInitial>Ok</button>
+</div>

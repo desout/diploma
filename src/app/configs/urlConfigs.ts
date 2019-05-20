@@ -8,5 +8,7 @@ export const pathConfig = {
   ingredientAPI: 'ingredients',
   employeesAPI: 'employees',
   providersAPI: 'providers',
-  historyAPI: 'history'
+  historyAPI: 'history',
+  ordersAPI: 'orders',
+  clientsAPI: 'clients'
 };

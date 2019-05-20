@@ -1,0 +1,124 @@
+{
+  "HOME": {
+    "SELECT_LANG": "Выбрать язык",
+    "LOGOUT": "Выйти",
+    "LOGIN": "Войти",
+    "UPDATEPASSWORD": "Забыли пароль?",
+    "DIRECTOR_MENU": "Управление",
+    "FINANCIALPART": "Финансовая часть",
+    "MERCHANDISER": "Меню продуктов",
+    "MENU": "Меню",
+    "ABOUT": "О нас",
+    "SELECTDEPARTMENTS": "Выбрать отделение",
+    "LOGINPAGE": "Пожалуйста, войдите",
+    "BACK": "Назад"
+  },
+  "INFOPAGES": {
+    "CREATE": "Создать",
+    "NUMBER": "No.",
+    "NAME": "Имя",
+    "DEPARTMENTNAME": "Имя отделения",
+    "LOGIN": "Логин",
+    "PASSPORTDATA": "Паспортные данные",
+    "DATEOFBIRTH": "День рождения",
+    "ROLE": "Роль",
+    "ACTIONS": "Действия",
+    "DESCRIPTION": "Описание",
+    "SEARCH": "Поиск",
+    "EMPLOYEENAME": "Имя сотрудника",
+    "CREATEDEPARTMENT": "Создать отделение",
+    "CREATEEMPLOYEE": "Создать сотрудника",
+    "PROVIDERCONTRACTINFO": "Контрактная информация поставшика",
+    "COUNT": "Количество",
+    "COST": "Стоимость",
+    "DATE": "Дата",
+    "INGREDIENTNAME": "Имя ингредиента",
+    "DISCOUNTCOST": "Стоимость со скидкой",
+    "CLIENTNAME": "Имя клиента",
+    "STATUS": "Статус",
+    "DISHES": "Блюда",
+    "DISHNAME": "Имя блюда",
+    "CONTACTS": "Контакты",
+    "DISCOUNT": "Скидка"
+  },
+  "ACCOUNTANT": {
+    "PROVIDERS": "Поставщики",
+    "ORDERS": "Заказы"
+  },
+  "MERCHANDISER": {
+    "DISHES": "Блюда",
+    "INGREDIENTS": "Ингредиенты",
+    "CATEGORIES": "Категории",
+    "CLIENTS": "Клиенты"
+  },
+  "ACCOUNT": {
+    "FORGOTPASSWORDPAGE": "Забыли пароль?",
+    "LOGIN": "Логин",
+    "OLDPASSWORD": "Старый пароль",
+    "NEWPASSWORD": "Новый пароль",
+    "ISEMPLOYEE": "Как сотрудник",
+    "PASSWORD": "Пароль",
+    "LOGINEMPLOYEE": "Войти как сотрудник"
+  },
+  "DIRECTOR": {
+    "MANAGEMENTCONTROL": "Контроль персонала",
+    "DEPARTMENTSSTATISTIC": "Статистика по отделениям",
+    "DISHESSTATISTIC": "Анализ популярности блюд"
+  },
+  "NAV": {
+    "MENU": "Меню",
+    "ABOUT": "О нас"
+  },
+  "EDIT": {
+    "DEPARTMENT": "Редактировать отделение",
+    "PLACE": "Место",
+    "CONTACTS": "Контакты",
+    "DESCRIPTION": "Описание",
+    "EMPLOYEE": "Редактировать сотрудника",
+    "FIRSTNAME": "Имя",
+    "SECONDNAME": "Отчество",
+    "LASTNAME": "Фамилия",
+    "DATEOFBIRTH": "День рождения",
+    "PASSPORTDATA": "Паспортные данные",
+    "SALARY": "Зарплата",
+    "SELECTROLE": "Роль",
+    "SELECTDEPARTMENT": "Отделение",
+    "LOGIN": "Логин",
+    "PROVIDER": "Редактировать поставщика",
+    "CONTRACTINFO": "Контрактная информация",
+    "DISHNAME": "Имя блюда",
+    "PREPARETIME": "Время приготовления",
+    "IMAGE": "Картинка",
+    "SELECTCATEGORY": "Категория",
+    "SELECTINGREDIENTS": "Ингредиенты",
+    "DISH": "Редактировать блюдо",
+    "COUNT": "Количество",
+    "COST": "Стоимость",
+    "TYPE": "Тип",
+    "NAME": "Имя",
+    "INGREDIENT": "Редактировать ингредиент",
+    "CATEGORYNAME": "Имя категории",
+    "CATEGORY": "Редактировать категорию",
+    "CLIENT": "Редактировать клиента",
+    "CLIENTNAME": "Имя клиента",
+    "DISCOUNT": "Скидка"
+  },
+  "DISH": {
+    "COMPOSITION": "Состав"
+  },
+  "TITLE": {
+    "DIRECTOR": "Директор",
+    "CLIENT": "Клиент",
+    "ACCOUNTANT": "Бухгалтер",
+    "MERCHANDISER": "Товаровед"
+  },
+  "STATISTIC": {
+    "DEPARTMENTSVENUETITLE": "Статистика о прибыли отделений",
+    "DISHESSTATISTICTITLE": "Статистика о популярности блюд",
+    "STARTDATE": "Выберите начальную дату",
+    "ENDDATE": "Выберите конечную дату",
+    "MONTH": "Месяц",
+    "VENUE": "Прибыль",
+    "COUNT": "Количество"
+  }
+}

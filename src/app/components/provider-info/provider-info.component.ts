@@ -17,7 +17,7 @@ export class ProviderInfoComponent implements OnInit {
   constructor(private providerService: ProviderService, private historyService: HistoryService, public dialog: MatDialog) {
   }
 
-  displayedColumns: string[] = ['contactInfo', 'id', 'count', 'cost', 'date', 'ingredientName'];
+  displayedColumns: string[] = ['contractInfo', 'Ingredients_idIngredient', 'count', 'cost', 'date', 'ingredientName'];
   dataSource: MatTableDataSource<Provider>;
   searchKey: string;
 
@@ -30,6 +30,7 @@ export class ProviderInfoComponent implements OnInit {
 
   updateData() {
     this.historyService.getFullHistory().subscribe(res => {
+      console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -38,12 +39,13 @@ export class ProviderInfoComponent implements OnInit {
 
   openEditDialogProvider(provider: Provider): void {
     const dialogRef = this.dialog.open(EditProviderComponent, {
-      width: '600px',
+      width: '300px',
       data: provider
     });
 
     dialogRef.afterClosed().subscribe((result: undefined | Provider) => {
       if (result) {
+        console.log(result);
         if (result.idProvider === -1) {
           this.providerService.addProvider(result).subscribe(() => this.updateData());
         } else {

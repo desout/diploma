@@ -1,3 +1,14 @@
-<p>
-  edit-provider works!
-</p>
+<h1 mat-dialog-title>{{"EDIT.PROVIDER" | translate}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="providerForm" enctype="multipart/form-data">
+
+    <mat-form-field>
+      <textarea formControlName="contractInfo" matInput placeholder='{{"EDIT.CONTRACTINFO" | translate}}'></textarea>
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">{{"HOME.BACK" | translate}}</button>
+  <button mat-button [mat-dialog-close]="providerForm.value" cdkFocusInitial>Ok</button>
+</div>

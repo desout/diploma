@@ -1,20 +1,24 @@
-<h1 mat-dialog-title>Edit dish</h1>
+<h1 mat-dialog-title>{{"EDIT.INGREDIENT" | translate}}</h1>
 <div mat-dialog-content>
   <form [formGroup]="ingredientForm" enctype="multipart/form-data">
     <mat-form-field>
-      <input matInput formControlName="name" placeholder="Input dish name">
+      <input matInput formControlName="name" placeholder='{{"EDIT.NAME" | translate}}'>
     </mat-form-field>
 
     <mat-form-field>
-      <input type="number" formControlName="count" matInput placeholder="Count">
+      <input type="number" formControlName="count" matInput placeholder='{{"EDIT.COUNT" | translate}}'>
     </mat-form-field>
 
     <mat-form-field>
-      <input type="number" formControlName="cost" matInput placeholder="Price">
+      <input formControlName="type" matInput placeholder='{{"EDIT.TYPE" | translate}}'>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" formControlName="cost" matInput placeholder='{{"EDIT.COST" | translate}}'>
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Back</button>
+  <button mat-button (click)="onNoClick()">{{"HOME.BACK" | translate}}</button>
   <button mat-button [mat-dialog-close]="ingredientForm.value" cdkFocusInitial>Ok</button>
 </div>

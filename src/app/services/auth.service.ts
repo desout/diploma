@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {pathConfig} from '../configs/urlConfigs';
+import {UpdatePasswordUser} from '../models/UpdatePasswordUser';
 
 export interface AuthResponseType {
   success: boolean;
@@ -32,4 +33,8 @@ export class AuthService {
     return this.http.post(`${pathConfig.baseUrl}${pathConfig.accountAPI}/logout`, {});
   }
 
+  updatePassword(result: UpdatePasswordUser): Observable<{ id: number }> {
+    return this.http.post<{ id: number }>(`${pathConfig.baseUrl}${pathConfig.accountAPI}/updatePassword`, result);
+
+  }
 }

@@ -24,6 +24,7 @@ export class EditIngredientComponent implements OnInit {
         idIngredient: -1,
         name: '',
         count: 0,
+        type: '',
         cost: 0
       });
     }
@@ -35,6 +36,7 @@ export class EditIngredientComponent implements OnInit {
     idIngredient: [this.data.idIngredient],
     name: [this.data.name],
     count: [this.data.count],
+    type: [this.data.type],
     cost: [this.data.cost]
   });
 

@@ -9,6 +9,8 @@ import {Department} from '../../models/Department';
 import {MatDialog, MatSelectChange} from '@angular/material';
 import {LoginComponent} from '../login/login.component';
 import {AuthService, UserLogin} from '../../services/auth.service';
+import {TranslateService} from '@ngx-translate/core';
+import {UpdatePasswordComponent} from '../update-password/update-password.component';
 
 @Component({
   selector: 'app-navigation',
@@ -17,13 +19,16 @@ import {AuthService, UserLogin} from '../../services/auth.service';
 })
 export class NavigationComponent implements OnInit, OnDestroy {
 
-  constructor(private breakpointObserver: BreakpointObserver,
+  constructor(public translate: TranslateService,
+              private breakpointObserver: BreakpointObserver,
               public userService: UserService,
               public departmentService: DepartmentService,
               public authService: AuthService,
               public dialog: MatDialog,
               changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-
+    translate.addLangs(['en', 'ru']);
+    translate.setDefaultLang('ru');
+    translate.use('ru');
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -73,5 +78,23 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  openUpdatePasswordDialog() {
+    const dialogRef = this.dialog.open(UpdatePasswordComponent, {
+      width: '400px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        if (result.isEmployee) {
+          result.role = 'EMPLOYEE';
+        } else {
+          result.role = 'CLIENT';
+        }
+        this.authService.updatePassword(result).subscribe();
+      }
+    });
   }
 }

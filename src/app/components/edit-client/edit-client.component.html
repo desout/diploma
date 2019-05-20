@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{"EDIT.CLIENT" | translate}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="clientForm" enctype="multipart/form-data">
+    <mat-form-field>
+      <input matInput formControlName="name" placeholder='{{"EDIT.CLIENTNAME" | translate}}'>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea formControlName="contacts" matInput placeholder='{{"EDIT.CONTACTS" | translate}}'></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" formControlName="discount" matInput placeholder='{{"EDIT.DISCOUNT" | translate}}'/>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">{{"HOME.BACK" | translate}}</button>
+  <button mat-button [mat-dialog-close]="clientForm.value" cdkFocusInitial>Ok</button>
+</div>

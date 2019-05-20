@@ -3,7 +3,8 @@ export interface DeliveryHistoryItem {
   count: number;
   cost: number;
   date: string;
-  idProvider: number;
-  idIngredient: number;
-  ingredientName: string;
+  Providers_idProvider: number;
+  Ingredients_idIngredient: number;
+  ingredientName?: string;
+  providerName?: string;
 }
