@@ -1,0 +1,93 @@
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="app-name">{{companyName}}</h1>
+    <span class="spacer"></span>
+
+    <span *ngIf="!(userService.currentUser$ | async)">
+      <button mat-button (click)="openLoginDialog()">{{"HOME.LOGIN" | translate}}</button>
+      <button mat-button (click)="openUpdatePasswordDialog()">{{"HOME.UPDATEPASSWORD" | translate}}</button>
+    </span>
+    <span *ngIf="(userService.currentUser$ | async)"><span>{{(userService.currentUser$ | async).name}}</span>
+      <span>&nbsp;{{"TITLE." + (userService.currentUser$ | async).roleName | translate}}</span><button
+        type="button" mat-button (click)="logout()">{{"HOME.LOGOUT" | translate}}</button></span>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
+      <mat-nav-list>
+        <mat-list-item *ngIf="(userService.currentUser$ | async) && (userService.currentUser$ | async).role>2"
+                       (click)="showDirectorMenu = !showDirectorMenu" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing">{{"HOME.DIRECTOR_MENU" | translate}}</span>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showDirectorMenu}" *ngIf="isExpanded || isShowing">
+            expand_more
+          </mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showDirectorMenu}" *ngIf="isShowing || isExpanded">
+          <a mat-list-item routerLink="management/employees"
+             (click)="drawer.toggle()">{{"DIRECTOR.MANAGEMENTCONTROL" | translate}} </a>
+          <a mat-list-item routerLink="management/statistic"
+             (click)="drawer.toggle()">{{"DIRECTOR.DEPARTMENTSSTATISTIC" | translate}}</a>
+          <a mat-list-item routerLink="management/dishes-statistic"
+             (click)="drawer.toggle()">{{"DIRECTOR.DISHESSTATISTIC" | translate}}</a>
+
+        </div>
+        <mat-list-item *ngIf="(userService.currentUser$ | async) && (userService.currentUser$ | async).role>1"
+                       (click)="showCountMenu = !showCountMenu" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing">{{"HOME.FINANCIALPART" | translate}}</span>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showCountMenu}" *ngIf="isExpanded || isShowing">
+            expand_more
+          </mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showCountMenu}" *ngIf="isShowing || isExpanded">
+          <a mat-list-item routerLink="accountant/providers"
+             (click)="drawer.toggle()">{{"ACCOUNTANT.PROVIDERS" | translate}}</a>
+          <a mat-list-item routerLink="accountant/orders"
+             (click)="drawer.toggle()">{{"ACCOUNTANT.ORDERS" | translate}}</a>
+        </div>
+        <mat-list-item *ngIf="(userService.currentUser$ | async) && (userService.currentUser$ | async).role>0"
+                       (click)="showMerchMenu = !showMerchMenu" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing">{{"HOME.MERCHANDISER" |translate}}</span>
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showMerchMenu}" *ngIf="isExpanded || isShowing">
+            expand_more
+          </mat-icon>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showMerchMenu}" *ngIf="isShowing || isExpanded">
+          <a mat-list-item routerLink="merch/dishes" (click)="drawer.toggle()">{{"MERCHANDISER.DISHES" |translate}}</a>
+          <a mat-list-item routerLink="merch/ingredients"
+             (click)="drawer.toggle()">{{"MERCHANDISER.INGREDIENTS" |translate}}</a>
+          <a mat-list-item routerLink="merch/categories"
+             (click)="drawer.toggle()">{{"MERCHANDISER.CATEGORIES" |translate}}</a>
+          <a mat-list-item routerLink="merch/clients"
+             (click)="drawer.toggle()">{{"MERCHANDISER.CLIENTS" |translate}}</a>
+
+        </div>
+        <a mat-list-item routerLink="menu" (click)="drawer.toggle()">{{"HOME.MENU" | translate}}</a>
+        <a mat-list-item routerLink="about" (click)="drawer.toggle()">{{"HOME.ABOUT" | translate}}</a>
+
+        <mat-form-field>
+          <mat-label>{{"HOME.SELECTDEPARTMENTS" | translate}}</mat-label>
+          <mat-select [value]="selectedDepartment" (selectionChange)="updateDepartmentSelect($event)">
+            <mat-option *ngFor="let dep of  allDepartments$ | async"
+                        [value]="dep.idDepartment">{{dep.place}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field>
+          <mat-label>{{ 'HOME.SELECT_LANG' | translate }}</mat-label>
+          <mat-select #langSelect (valueChange)="translate.use(langSelect.value)" value="{{translate.currentLang}}">
+            <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -110,7 +110,10 @@
     "DIRECTOR": "Директор",
     "CLIENT": "Клиент",
     "ACCOUNTANT": "Бухгалтер",
-    "MERCHANDISER": "Товаровед"
+    "MERCHANDISER": "Товаровед",
+    "CASHIER": "Кассир",
+    "WAITER": "Официант",
+    "COOK": "Повар"
   },
   "STATISTIC": {
     "DEPARTMENTSVENUETITLE": "Статистика о прибыли отделений",

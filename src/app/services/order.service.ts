@@ -6,7 +6,7 @@ import {pathConfig} from '../configs/urlConfigs';
 import {getLocalDate, getUTCDate} from '../utils/date.formatter';
 import {concatAll, flatMap, map, toArray} from 'rxjs/operators';
 import {DepartmentService} from './department.service';
-import {chartItem, chartItems} from '../components/statistic/statistic.component';
+import {chartItem, chartItems} from '../components/statistics/statistic/statistic.component';
 import * as moment from 'moment';
 import {DATE_FORMATS} from '../shared/configuration';
 import {Dish} from '../models/Dish';
@@ -54,7 +54,9 @@ export class OrderService {
 
   generateSummary = (orders: Order[]): chartItem[] =>
     orders.reduce((prev: chartItem[], curr) => {
-      const elem = prev.findIndex(res => moment(res.name, DATE_FORMATS, true).format('YYYY-MM') === moment.utc(curr.date, DATE_FORMATS, true).format('YYYY-MM'));
+      const elem = prev.findIndex(res =>
+        moment(res.name, DATE_FORMATS, true)
+          .format('YYYY-MM') === moment.utc(curr.date, DATE_FORMATS, true).format('YYYY-MM'));
       if (elem !== -1) {
         prev[elem].value += curr.fullCost;
       } else {

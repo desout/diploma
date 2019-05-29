@@ -110,7 +110,10 @@
     "DIRECTOR": "Director",
     "CLIENT": "Client",
     "ACCOUNTANT": "Accountant",
-    "MERCHANDISER": "Merchandiser"
+    "MERCHANDISER": "Merchandiser",
+    "CASHIER": "Cashier",
+    "WAITER": "Waiter",
+    "COOK": "Cook"
   },
   "STATISTIC": {
     "DEPARTMENTSVENUETITLE": "Statistic about venue of departments",
