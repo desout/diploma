@@ -52,6 +52,9 @@
     "CLIENTS": "Clients"
   },
   "ACCOUNT": {
+    "ERROR": {
+      "LOGIN": "Incorrect UserName or Password"
+    },
     "LOGIN": "Login",
     "OLDPASSWORD": "Old Password",
     "NEWPASSWORD": "New Password",
@@ -70,6 +73,9 @@
     "ABOUT": "About"
   },
   "EDIT": {
+    "ERROR": {
+      "CLIENTNAME": "This name are not available"
+    },
     "DEPARTMENT": "Edit department",
     "PLACE": "Place",
     "CONTACTS": "Contacts",

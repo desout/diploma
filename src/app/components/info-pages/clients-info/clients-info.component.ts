@@ -40,16 +40,7 @@ export class ClientsInfoComponent implements OnInit {
       data: client
     });
 
-    dialogRef.afterClosed().subscribe((result: undefined | Client) => {
-      if (result) {
-        if (result.idClient === -1) {
-          result.password = result.name;
-          this.clientService.addClient(result).subscribe(() => this.updateData());
-        } else {
-          this.clientService.updateClient(result).subscribe(() => this.updateData());
-        }
-      }
-    });
+    dialogRef.afterClosed().subscribe(() => this.updateData());
   }
 
   onSearchClear() {

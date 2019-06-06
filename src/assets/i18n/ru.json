@@ -52,6 +52,9 @@
     "CLIENTS": "Клиенты"
   },
   "ACCOUNT": {
+    "ERROR": {
+      "LOGIN": "Неправильный логин или пароль"
+    },
     "FORGOTPASSWORDPAGE": "Забыли пароль?",
     "LOGIN": "Логин",
     "OLDPASSWORD": "Старый пароль",
@@ -70,6 +73,9 @@
     "ABOUT": "О нас"
   },
   "EDIT": {
+    "ERROR": {
+      "CLIENTNAME": "Данное имя недоступно"
+    },
     "DEPARTMENT": "Редактировать отделение",
     "PLACE": "Место",
     "CONTACTS": "Контакты",

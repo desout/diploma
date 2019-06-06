@@ -66,14 +66,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
       data: {name: '', password: '', isEmployee: false} as UserLogin
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        if (result.password.length === 0) {
-          result.password = undefined;
-        }
-        this.authService.login(result).subscribe(res => res.success ? this.userService.updateCurrentUser() : undefined);
-      }
-    });
+    dialogRef.afterClosed().subscribe();
   }
 
   ngOnDestroy(): void {

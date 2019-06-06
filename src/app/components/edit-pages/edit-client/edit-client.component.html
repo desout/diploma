@@ -4,17 +4,17 @@
     <mat-form-field>
       <input matInput formControlName="name" placeholder='{{"EDIT.CLIENTNAME" | translate}}'>
     </mat-form-field>
-
+    <div class="mat-error" *ngIf="!this.clientForm.controls.name.valid">{{"EDIT.ERROR.CLIENTNAME" | translate}}</div>
     <mat-form-field>
-      <textarea formControlName="contacts" matInput placeholder='{{"EDIT.CONTACTS" | translate}}'></textarea>
+      <textarea formControlName="contacts" matInput placeholder='{{"EDIT.CONTACTS" | translate}}' required></textarea>
     </mat-form-field>
 
     <mat-form-field>
-      <input type="number" formControlName="discount" matInput placeholder='{{"EDIT.DISCOUNT" | translate}}'/>
+      <input type="number" formControlName="discount" matInput placeholder='{{"EDIT.DISCOUNT" | translate}}' required/>
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">{{"HOME.BACK" | translate}}</button>
-  <button mat-button [mat-dialog-close]="clientForm.value" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onOK(clientForm.value)" cdkFocusInitial>Ok</button>
 </div>
